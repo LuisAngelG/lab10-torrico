@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Nombre del Cliente:" HorizontalAlignment="Center" Padding="10"/>
+            <TextBox x:Name="TextBoxNombreCliente" Width="150" />
+            <Button Content="Buscar" Width="70" Click="BuscarClientePorNombre_Click" Margin="0 10"/>
+
+            <ListView x:Name="ListViewCustomers" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Nombre" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Address" Width="100" DisplayMemberBinding="{Binding Address}"/>
+                        <GridViewColumn Header="Phone" Width="70" DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Header="Active" Width="40" DisplayMemberBinding="{Binding Active}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Grid.Row="3" Margin="10">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="ID del Cliente:"/>
+                    <TextBox x:Name="txtId" Width="250"/>
+                    <TextBlock Text="Nombre del Cliente:"/>
+                    <TextBox x:Name="txtName" Width="250"/>
+                    <TextBlock Text="Dirección:"/>
+                    <TextBox x:Name="txtAddress" Width="250"/>
+                    <TextBlock Text="Celular:"/>
+                    <TextBox x:Name="txtPhone" Width="250"/>
+                    <TextBlock Text="Activo:"/>
+                    <CheckBox x:Name="chkActive"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Insertar" Width="70" Click="InsertarClientePorNombre_Click" Margin="0 10 10 0" />
+                    <Button Content="Actualizar" Width="70" Click="ActualizarClientePorNombre_Click" Margin="0 10 10 0" />
+                    <Button Content="Eliminar" Width="70" Click="EliminarClientePorNombre_Click" Margin="0 10 0 0" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
